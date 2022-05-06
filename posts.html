@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>posts</title>
+</head>
+<body>
+<script type="text/javascript">
+  
+
+  var formdata = new FormData();
+formdata.append("server_key", "243ff5897fcd6ec23f4dbf822535ce0f");
+formdata.append("type", "get_user_posts");
+formdata.append("id", "2");
+
+var requestOptions = {
+  method: 'POST',
+  body: formdata,
+  redirect: 'follow'
+};
+//http://localhost:80/famousme/api/posts?access_token=cff92cf40594adcc156c9ef9d32edcd28154c103d6ad6a867af5c7354f44ae13bcf060fe35921514136c2f0599b3a0175c544b72e4861b9f
+fetch("http://localhost:8096/posts.hh", requestOptions)
+  .then(response => 
+{
+  var m = response.text();
+
+  console.table(m);
+
+
+  try {
+
+
+   var  op  = JSON.parse(m);
+
+   const tstr = JSON.stringify(m);
+
+   console.table(op);
+
+   console.table(tstr);
+  }catch(error){
+    console.log(error);
+  }
+}
+
+    )
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+</script>
+</body>
+</html>
+
+
+<!-- 
+
+try {
+  nonExistentFunction();
+} catch (error) {
+  console.error(error);
+  // expected output: ReferenceError: nonExistentFunction is not defined
+  // Note - error messages will vary depending on browser
+}
+
+  -->

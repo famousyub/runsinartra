@@ -1,0 +1,81 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://cdn.jsdelivr.net/npm/vue-advanced-chat@0.8.8/dist/vue-advanced-chat.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <title>famousme</title>
+</head>
+<body>
+<template>
+  <vue-advanced-chat/>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      rooms: [],
+      messages: [],
+      currentUserId: 1234
+    }
+  },
+  mounted() {
+    document.querySelector('vue-advanced-chat').currentUserId = this.currentUserId
+    document.querySelector('vue-advanced-chat').rooms = this.rooms
+    document.querySelector('vue-advanced-chat').messages = this.messages
+  }
+}
+</script>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 offset-sm-4 col-sm-4">
+            <h3 class="text-center">famousMe</h3>
+            <br>
+            <h4 class="text-center">Login</h4>
+            <form id="login">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email"
+                           maxlength="255"
+                           class="form-control"
+                           id="login-email"
+                           name="email"
+                           required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password"
+                           maxlength="32"
+                           class="form-control"
+                           name="password"
+                           id="login-password"
+                           required>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary" value="Log in">
+                </div>
+            </form>
+        </div>
+        <div class="col-xs-12 offset-sm-4 col-sm-4">
+            <hr>
+            <div id="result-container"></div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<script src="./script.js"></script>
+</body>
+</html>
